@@ -1,0 +1,50 @@
+http://docs.djangoproject.com/en/2.2/topics/email/
+
+git clone https://github.com/kgb0421/RestaurantShare-with-Django.git
+
+cd RestaurantShare-with-Django
+
+파이썬 3.7 버전의 가상환경 셋팅
+virtualenv --python= restaurantEnv
+
+가상환경 실행
+source  restaurantEnv/bin/activate
+
+장고 설치
+pip install django~=2.2
+
+Add a new web app 버튼을 누른다.
+Next
+Python Web framework 를 고르는 창이 나온다.
+'Manual configuration'을 선택한다.
+파이썬 버전 선택은 Python 3.7을 선택한다.
+Next --> Webapp 가 만들어 진다.
+
+Webapp 화면에서 약간 내리면
+Virtualenv : 항목을 발견할 수 있다.
+ 여기서 Enter path to virtualenv, if desired 이 문구를 클릭한다.
+다음과 같은 경로를 입력한다.
+/home/PythonAnyWhere의 Username(파이썬애니웨어 이름)/Github 저장소 이름/가상환경 이름
+
+File로 들어가서 RestaurantShare-with-Django/RestaurantShare/RestaurantShare/settings.py 들어가기
+ALLOWED_HOSTS = ["diakt.pythonanywhere.com"] 수정하기
+
+web항목의 code의 wsgi.py 들어가기
+import os
+import sys
+
+path='/home/kduaro124/RestaurantShare-with-Django/RestaurantShare'
+# /home/PythonAnuWhere의 Username/github 저장소 이름/ Django 프로젝트 이름
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'RestaurantShare.settings' # /Django project 이름.setting
+
+from django.core.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
+application = StaticFilesHandler(get_wsgi_application())
+
+
+
+
+

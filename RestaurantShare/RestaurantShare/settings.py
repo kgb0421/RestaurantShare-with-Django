@@ -25,7 +25,15 @@ SECRET_KEY = 'q*(lvw1td+!q=ko^@eexe#xiqs%l=#ue_7u)g8@36=bpsnl3k6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["diakt.pythonanywhere.com/", "127.0.0.1", "localhost"]
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "diakt0421@gmail.com"
+EMAIL_HOST_PASSWORD = "!diakt9078"
 
 
 # Application definition
